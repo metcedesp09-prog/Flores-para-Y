@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Ti 🌻</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fff8d6, #ffe88a, #ffd54f);
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .petals {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .petal {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      animation: fall linear infinite;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      from {
+        transform: translateY(-10vh) rotate(0deg);
+      }
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+
+    .card {
+      width: 90%;
+      max-width: 420px;
+      background: rgba(255,255,255,0.88);
+      border-radius: 24px;
+      padding: 30px 22px;
+      text-align: center;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+      z-index: 2;
+      position: relative;
+    }
+
+    .flower {
+      font-size: 64px;
+      margin-bottom: 12px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%,100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+
+    h1 {
+      color: #9a6700;
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #5c4300;
+      font-size: 1.08rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .firma {
+      margin-top: 14px;
+      font-weight: bold;
+      color: #7a5200;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 12px 20px;
+      background: #f4b400;
+      color: white;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      background: #d89b00;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <div class="petals" id="petals"></div>
+
+  <div class="card">
+    <div class="flower">🌻</div>
+    <h1>Para ti, mi amor</h1>
+    <p>
+      Te regalo estas flores amarillas como un pequeño detalle,
+      para recordarte lo especial que eres para mí.
+    </p>
+    <p>
+      Ojalá cada pétalo te saque una sonrisa y te recuerde
+      cuánto te pienso, cuánto te quiero y lo bonito que haces mi vida.
+    </p>
+    <p class="firma">Con cariño, Yohan 💛</p>
+    <a href="#" class="btn">Siempre tú 🌻</a>
+  </div>
+
+  <script>
+    const petals = document.getElementById("petals");
+
+    for (let i = 0; i < 25; i++) {
+      const petal = document.createElement("div");
+      petal.className = "petal";
+      petal.textContent = "🌼";
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = (4 + Math.random() * 6) + "s";
+      petal.style.animationDelay = Math.random() * 5 + "s";
+      petal.style.fontSize = (18 + Math.random() * 20) + "px";
+      petals.appendChild(petal);
+    }
+  </script>
+</body>
+</html>
